@@ -1,0 +1,24 @@
+<div class="page-title text-center">
+    <h1><?php echo __('Vous allez etre redirigé'); ?></h1>
+</div>
+<div class="row">
+    <div class="col col-md-12">
+    <?php echo __("Vous allez etre redirigé vers la plateforme de paiement d'ici quelques secondes."); ?><br/>
+    <?php echo __("Si ce n'est pas le cas"); ?> <a id="lydiaapi_btn" href="#"><?php echo __("cliquez ici"); ?></a>
+        <?php echo $block->getBankForm($block->getData('form_data'),$block->getData('form_url')); ?>
+    </div>
+</div>
+<script type="text/javascript">
+require([
+    'jquery'
+], function ($) {
+    $(document).ready(function() {
+        $("#form_lydia_api").submit();
+        $("#lydiaapi_btn").click(function(e){
+			e.preventDefault();
+			$("#form_lydia_api").submit();
+		});
+	});
+
+});
+</script>
